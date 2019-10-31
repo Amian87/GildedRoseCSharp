@@ -1,0 +1,8 @@
+language: csharp
+solution: GildedRoseKata.sln
+mono: none
+dotnet: 3.0
+script:
+  - cd GildedRoseKata
+  - dotnet restore
+  - dotnet test
