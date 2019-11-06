@@ -22,7 +22,7 @@ namespace GildedRoseTest
         [Test]
         public void foo()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+            IList<IItem> Items = new List<IItem> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual("foo", Items[0].Name);
@@ -31,7 +31,7 @@ namespace GildedRoseTest
         [Test]
         public void TestAgedBrie()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 0 } };
+            IList<IItem>Items = new List<IItem>{ new Item { Name = "Aged Brie", SellIn = 0, Quality = 0 } };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual("Aged Brie", Items[0].Name);
@@ -42,7 +42,7 @@ namespace GildedRoseTest
         [Test]
         public void TestBackstagePass()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 0 } };
+            IList<IItem>Items = new List<IItem>{ new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 0 } };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
@@ -53,7 +53,7 @@ namespace GildedRoseTest
         [Test]
         public void TestSulfurasHandOfRagnaros()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80} };
+            IList<IItem>Items = new List<IItem>{ new ConstantQualityItem { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80} };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual("Sulfuras, Hand of Ragnaros", Items[0].Name);
@@ -64,7 +64,7 @@ namespace GildedRoseTest
         [Test]
         public void TestDexterityVest()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = 100, Quality = 50 } };
+            IList<IItem>Items = new List<IItem>{ new Item { Name = "+5 Dexterity Vest", SellIn = 100, Quality = 50 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual("+5 Dexterity Vest", Items[0].Name);
@@ -75,7 +75,7 @@ namespace GildedRoseTest
         [Test]
         public void TestElixirOfTheMongoose()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 100, Quality = 50 } };
+            IList<IItem>Items = new List<IItem>{ new Item { Name = "Elixir of the Mongoose", SellIn = 100, Quality = 50 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual("Elixir of the Mongoose", Items[0].Name);
@@ -86,7 +86,7 @@ namespace GildedRoseTest
         [Test]
         public void SulfurasDoesNotDecreaseInQuality()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 } };
+            IList<IItem>Items = new List<IItem>{ new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 } };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual("Sulfuras, Hand of Ragnaros", Items[0].Name);
@@ -97,7 +97,7 @@ namespace GildedRoseTest
         [Test]
         public void AgedBrieIncreasesInQualityTheOlderItGets()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
+            IList<IItem>Items = new List<IItem>{ new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual("Aged Brie", Items[0].Name);
@@ -108,7 +108,7 @@ namespace GildedRoseTest
         [Test]
         public void QualityOfAnItemIsNeverMoreThanFiftyAndIsNeverNegative()
         {
-            IList<Item> Items = new List<Item>();
+            IList<IItem>Items = new List<IItem>();
             Items.Add(new Item { Name = "Aged Brie", SellIn = 2, Quality = 1 });
             Items.Add(new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 });
             Items.Add(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 20, Quality = 50 });
@@ -145,7 +145,7 @@ namespace GildedRoseTest
         [Test]
         public void OnceTheSellDateHasPassedQualityDegradesTwiceAsFast()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = 28, Quality = 50 } };
+            IList<IItem>Items = new List<IItem>{ new Item { Name = "+5 Dexterity Vest", SellIn = 28, Quality = 50 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual(16, Items[0].Quality);
