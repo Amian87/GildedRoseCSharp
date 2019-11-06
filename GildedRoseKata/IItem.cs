@@ -4,9 +4,9 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public interface IItem
+    public abstract class IItem
     {
-        public void Update();
+        public abstract void Update();
 
         public string Name { get; set; }
         public int Quality { get; set; }

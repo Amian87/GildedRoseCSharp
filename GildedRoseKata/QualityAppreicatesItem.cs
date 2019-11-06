@@ -6,11 +6,7 @@ namespace GildedRoseKata
 {
     public class QualityAppreicatesItem : IItem
     {
-        public string Name { get; set; }
-        public int SellIn { get; set; }
-        public int Quality { get; set; }
-
-        public void Update()
+        public override void Update()
         {
             Quality += 2;
 
