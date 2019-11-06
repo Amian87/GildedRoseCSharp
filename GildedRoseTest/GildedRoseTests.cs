@@ -31,12 +31,12 @@ namespace GildedRoseTest
         [Test]
         public void TestAgedBrie()
         {
-            IList<IItem>Items = new List<IItem>{ new Item { Name = "Aged Brie", SellIn = 0, Quality = 0 } };
+            IList<IItem>Items = new List<IItem>{ new QualityAppreicatesItem { Name = "Aged Brie", SellIn = 0, Quality = 0 } };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual("Aged Brie", Items[0].Name);
             Assert.AreEqual(2, Items[0].Quality);
-            Assert.AreEqual(-1, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].SellIn);
         }
 
         [Test]
@@ -97,12 +97,12 @@ namespace GildedRoseTest
         [Test]
         public void AgedBrieIncreasesInQualityTheOlderItGets()
         {
-            IList<IItem>Items = new List<IItem>{ new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
+            IList<IItem>Items = new List<IItem>{ new QualityAppreicatesItem { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual("Aged Brie", Items[0].Name);
             Assert.AreEqual(50, Items[0].Quality);
-            Assert.AreEqual(-21, Items[0].SellIn);
+            Assert.AreEqual(10, Items[0].SellIn);
         }
 
         [Test]
