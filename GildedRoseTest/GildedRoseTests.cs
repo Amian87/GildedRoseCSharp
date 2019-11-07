@@ -64,7 +64,7 @@ namespace GildedRoseTest
         [Test]
         public void TestDexterityVest()
         {
-            IList<IItem>Items = new List<IItem>{ new Item { Name = "+5 Dexterity Vest", SellIn = 100, Quality = 50 } };
+            IList<IItem>Items = new List<IItem>{ new QualityDepreciatesItem { Name = "+5 Dexterity Vest", SellIn = 100, Quality = 50 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual("+5 Dexterity Vest", Items[0].Name);
@@ -75,7 +75,7 @@ namespace GildedRoseTest
         [Test]
         public void TestElixirOfTheMongoose()
         {
-            IList<IItem>Items = new List<IItem>{ new Item { Name = "Elixir of the Mongoose", SellIn = 100, Quality = 50 } };
+            IList<IItem>Items = new List<IItem>{ new QualityDepreciatesItem { Name = "Elixir of the Mongoose", SellIn = 100, Quality = 50 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual("Elixir of the Mongoose", Items[0].Name);
@@ -109,11 +109,11 @@ namespace GildedRoseTest
         public void QualityOfAnItemIsNeverMoreThanFiftyAndIsNeverNegative()
         {
             IList<IItem>Items = new List<IItem>();
-            Items.Add(new Item { Name = "Aged Brie", SellIn = 2, Quality = 1 });
-            Items.Add(new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 });
+            Items.Add(new QualityAppreicatesItem { Name = "Aged Brie", SellIn = 2, Quality = 1 });
+            Items.Add(new ConstantQualityItem { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 });
             Items.Add(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 20, Quality = 50 });
-            Items.Add(new Item { Name = "Elixir of the Mongoose", SellIn = 20, Quality = 50 });
-            Items.Add(new Item { Name = "+5 Dexterity Vest", SellIn = 20, Quality = 50 });
+            Items.Add(new QualityDepreciatesItem { Name = "Elixir of the Mongoose", SellIn = 20, Quality = 50 });
+            Items.Add(new QualityDepreciatesItem { Name = "+5 Dexterity Vest", SellIn = 20, Quality = 50 });
 
 
             GildedRose app = new GildedRose(Items);
@@ -145,7 +145,7 @@ namespace GildedRoseTest
         [Test]
         public void OnceTheSellDateHasPassedQualityDegradesTwiceAsFast()
         {
-            IList<IItem>Items = new List<IItem>{ new Item { Name = "+5 Dexterity Vest", SellIn = 28, Quality = 50 } };
+            IList<IItem>Items = new List<IItem>{ new QualityDepreciatesItem { Name = "+5 Dexterity Vest", SellIn = 28, Quality = 50 } };
             GildedRose app = new GildedRose(Items);
             UpdateItemQualityThirtyTimes(app);
             Assert.AreEqual(16, Items[0].Quality);

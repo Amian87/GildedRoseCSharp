@@ -9,8 +9,9 @@ namespace GildedRoseKata
         public override void Update()
         {
             Quality -= 1;
+            SellIn -= 1;
 
-            if(SellIn < 0)
+            if (SellIn < 0)
             {
                 Quality -= 1;
             }
@@ -18,6 +19,8 @@ namespace GildedRoseKata
             {
                 Quality = 0;
             }
+
+   
         }
 
     }

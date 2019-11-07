@@ -40,5 +40,20 @@ namespace GildedRoseTest
             Assert.AreEqual(0, item.Quality);
         }
 
+        [Test]
+        public void DecrementSellInByOne()
+        {
+            QualityDepreciatesItem item = new QualityDepreciatesItem { Name = "Aged Brie", SellIn = 1, Quality = 0 };
+            item.Update();
+            Assert.AreEqual(0, item.SellIn);
+        }
+
+        [Test]
+        public void WhenQualityIsNine()
+        {
+            QualityDepreciatesItem item = new QualityDepreciatesItem { Name = "Aged Brie", SellIn = 0, Quality = 10 };
+            item.Update();
+            Assert.AreEqual(8, item.Quality);
+        }
     }
 }
