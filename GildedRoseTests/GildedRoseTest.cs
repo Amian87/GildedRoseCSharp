@@ -37,6 +37,18 @@ namespace GildedRoseTests
 
         }
 
+
+        [Test]
+        public void QualityOfAnItemDecrementsByOne()
+        {
+            List<IItem> item = new List<IItem> { new Item { Name = "foo", Quality = 10, SellIn = 10 } };
+            var app = new GildedRose(item);
+            app.UpdateQuality();
+            Assert.AreEqual(9, item[0].Quality);
+            Assert.AreEqual(9, item[0].SellIn);
+        }
+
+
         [Test]
         public void QualityNeverDegradesForSulfuras()
         {

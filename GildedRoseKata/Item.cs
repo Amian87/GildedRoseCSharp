@@ -17,31 +17,22 @@ namespace GildedRoseKata
 
         public void UpdateQuality()
         {
+            SellIn = SellIn - 1;
 
-            if (Name != "Sulfuras, Hand of Ragnaros")
-            {
-                SellIn = SellIn - 1;
-            }
+            DecrementQuality();
 
             if (SellIn < 0)
             {
-                if (Name != "Aged Brie")
-                {
-                   
-                        if (Quality > 0)
-                        {
-       
-                        }
-                 
-               
-                }
-                else
-                {
-                    if (Quality < 50)
-                    {
-                        Quality = Quality + 1;
-                    }
-                }
+                DecrementQuality();
+
+            }
+        }
+
+        private void DecrementQuality()
+        {
+            if (Quality > 0)
+            {
+                Quality = Quality - 1;
             }
         }
     }
