@@ -22,6 +22,7 @@ namespace GildedRoseTests
             QualityAppreciates qualityAppreciates = new QualityAppreciates { Name = "Aged Brie", Quality = 10, SellIn = -1 };
             qualityAppreciates.UpdateQuality();
             Assert.AreEqual(12, qualityAppreciates.Quality);
+            Assert.AreEqual(-2, qualityAppreciates.SellIn);
         }
 
         [Test]
@@ -31,6 +32,7 @@ namespace GildedRoseTests
             qualityAppreciates.UpdateQuality();
             Assert.AreEqual(50, qualityAppreciates.Quality);
         }
+
 
     }
 }
