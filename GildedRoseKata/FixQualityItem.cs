@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class FixQualityItem : IItem
+    public class FixQualityItem : IUpdateQuality
     {
         public string Name { get; set; }
         public int Quality { get; set; }

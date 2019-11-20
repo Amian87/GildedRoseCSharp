@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public interface IItem
+    public interface IUpdateQuality
     {
         public void UpdateQuality();
 

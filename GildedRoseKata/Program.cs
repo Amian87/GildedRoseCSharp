@@ -9,7 +9,7 @@ namespace GildedRoseKata
         {
             Console.WriteLine("OMGHAI!");
 
-            IList<IItem> Items = new List<IItem>{
+            IList<IUpdateQuality> Items = new List<IUpdateQuality>{
                 new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                 new QualityAppreciates {Name = "Aged Brie", SellIn = 2, Quality = 0},
                 new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},

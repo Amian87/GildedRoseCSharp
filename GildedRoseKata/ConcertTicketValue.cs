@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class ConcertTicketValue : IItem
+    public class ConcertTicketValue : IUpdateQuality
     {
         public string Name { get; set; }
         public int Quality { get; set; }
