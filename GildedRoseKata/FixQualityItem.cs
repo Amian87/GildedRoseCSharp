@@ -4,13 +4,10 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class FixQualityItem : IUpdateQuality
+    public class FixQualityItem : Item
     {
-        public string Name { get; set; }
-        public int Quality { get; set; }
-        public int SellIn { get; set; }
 
-        public void UpdateQuality()
+        public override void UpdateQuality()
         {
             
         }
