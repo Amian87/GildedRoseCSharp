@@ -8,10 +8,6 @@ namespace GildedRoseKata
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
-            Item shirt = new Item { Name = "Regular Shirt", SellIn = 5, Quality = 49 };
-            ConjuredDecorator conjuredShirt = new ConjuredDecorator(shirt);
-
-
             IList<IItem> Items = new List<IItem>{
                 new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                 new QualityAppreciates {Name = "Aged Brie", SellIn = 2, Quality = 0},
@@ -41,16 +37,10 @@ namespace GildedRoseKata
                     Name = "Conjured Shirt",
                     SellIn = 5,
                     Quality = 49
-                },
-                conjuredShirt 
-
+                }
             };
     
-            
-
-
             var app = new GildedRose(Items);
-
 
             for (var i = 0; i < 31; i++)
             {
@@ -58,7 +48,7 @@ namespace GildedRoseKata
                 Console.WriteLine("name, sellIn, quality");
                 for (var j = 0; j < Items.Count; j++)
                 {
-                    System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+                    Items[j].PrintOut();
                 }
                 Console.WriteLine("");
                 app.UpdateQuality();
