@@ -30,7 +30,7 @@ namespace GildedRoseTests
         [Test]
         public void AgedBrieQualityIncreasesByOneBeforeSellInDate()
         {
-            List<IItem> item = new List<IItem> { new Item { Name = "Aged Brie", Quality = 10, SellIn = 10 } };
+            List<IItem> item = new List<IItem> { new QualityAppreciates { Name = "Aged Brie", Quality = 10, SellIn = 10 } };
             var app = new GildedRose(item);
             app.UpdateQuality();
             Assert.AreEqual(11, item[0].Quality);
@@ -40,7 +40,7 @@ namespace GildedRoseTests
         [Test]
         public void AgedBrieQualityIncreasesByTwoAfterSellInDate()
         {
-            List<IItem> item = new List<IItem> { new Item { Name = "Aged Brie", Quality = 10, SellIn = 0 } };
+            List<IItem> item = new List<IItem> { new QualityAppreciates { Name = "Aged Brie", Quality = 10, SellIn = 0 } };
             var app = new GildedRose(item);
             app.UpdateQuality();
             Assert.AreEqual(12, item[0].Quality);
@@ -50,7 +50,7 @@ namespace GildedRoseTests
         [Test]
         public void BackstagePassQualityIncreasesByTwoWhenThereAreLessThanTenDaysLeft()
         {
-            List<IItem> item = new List<IItem> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 10 } };
+            List<IItem> item = new List<IItem> { new ConcertTicketQuality { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 10 } };
             var app = new GildedRose(item);
             app.UpdateQuality();
             Assert.AreEqual(12, item[0].Quality);
@@ -60,7 +60,7 @@ namespace GildedRoseTests
         [Test]
         public void BackstagePassQualityIncreasesByThreeWhenThereAreLessThanFiveDaysLeft()
         {
-            List<IItem> item = new List<IItem> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 5 } };
+            List<IItem> item = new List<IItem> { new ConcertTicketQuality { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 5 } };
             var app = new GildedRose(item);
             app.UpdateQuality();
             Assert.AreEqual(13, item[0].Quality);
@@ -70,7 +70,7 @@ namespace GildedRoseTests
         [Test]
         public void BackstagePassQualityIsZeroAfterSellInDay()
         {
-            List<IItem> item = new List<IItem> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 0 } };
+            List<IItem> item = new List<IItem> { new ConcertTicketQuality { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 0 } };
             var app = new GildedRose(item);
             app.UpdateQuality();
             Assert.AreEqual(0, item[0].Quality);
@@ -80,7 +80,7 @@ namespace GildedRoseTests
         [Test]
         public void SulfurasQualityAndSellInDateNeverDecreases()
         {
-            List<IItem> item = new List<IItem> { new Item { Name = "Sulfuras, Hand of Ragnaros", Quality = 10, SellIn = 10 } };
+            List<IItem> item = new List<IItem> { new FixedQuality { Name = "Sulfuras, Hand of Ragnaros", Quality = 10, SellIn = 10 } };
             var app = new GildedRose(item);
             app.UpdateQuality();
             Assert.AreEqual(10, item[0].Quality);

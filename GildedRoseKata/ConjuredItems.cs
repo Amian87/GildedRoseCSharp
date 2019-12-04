@@ -4,24 +4,20 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class QualityAppreciates : IItem
+    public class ConjuredItems : IItem
     {
         public string Name { get; set; }
         public int Quality { get; set; }
         public int SellIn { get; set; }
 
-        public void UpdateQuality() 
+        public void UpdateQuality()
         {
-            Quality += 1;
+            Quality -= 2;
             SellIn -= 1;
-
-            if(SellIn < 0)
+            
+            if(Quality < 0)
             {
-                Quality += 1;
-            }
-            if (Quality >= 50)
-            {
-                Quality = 50;
+                Quality = 0;
             }
         }
 

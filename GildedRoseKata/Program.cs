@@ -8,6 +8,9 @@ namespace GildedRoseKata
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
+            Item shirt = new Item { Name = "Regular Shirt", SellIn = 5, Quality = 49 };
+            ConjuredDecorator conjuredShirt = new ConjuredDecorator(shirt);
+
 
             IList<IItem> Items = new List<IItem>{
                 new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
@@ -33,9 +36,18 @@ namespace GildedRoseKata
                     SellIn = 5,
                     Quality = 49
                 },
-				// this conjured item does not work properly yet
-				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                new ConjuredItems
+                {
+                    Name = "Conjured Shirt",
+                    SellIn = 5,
+                    Quality = 49
+                },
+                conjuredShirt 
+
             };
+    
+            
+
 
             var app = new GildedRose(Items);
 
