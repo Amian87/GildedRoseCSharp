@@ -6,6 +6,13 @@ namespace GildedRoseKata
 {
     public class ConjuredItems : AbstractItem
     {
+        public ConjuredItems(string name, int sellIn, int quality)
+        {
+            this.Name = name;
+            this.SellIn = sellIn;
+            this.Quality = quality;
+        }
+
         public override void UpdateQuality()
         {
             Quality -= 2;

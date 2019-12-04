@@ -11,41 +11,41 @@ namespace GildedRoseTests
         [Test]
         public void ConcertTicketQualityIncreasesByTwoWhenLessThanDaysLeft()
         {
-            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality { Name = "foo", Quality = 10, SellIn = 9 };
+            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality("foo", 9, 10) ;
             concertTicketQuality.UpdateQuality();
-            Assert.AreEqual(12, concertTicketQuality.Quality);
+            Assert.AreEqual("foo, 8, 12", concertTicketQuality.PrintOut());
         }
 
         [Test]
         public void ConcertTicketQualityIncreasesByThreeWhenLessThanFiveDaysLeft()
         {
-            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality { Name = "foo", Quality = 10, SellIn = 4 };
+            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality("foo", 4, 10);
             concertTicketQuality.UpdateQuality();
-            Assert.AreEqual(13, concertTicketQuality.Quality);
+            Assert.AreEqual("foo, 3, 13", concertTicketQuality.PrintOut());
         }
 
         [Test]
         public void ConcertTicketQualityIncreasesByOneTenDaysBeforeConcert()
         {
-            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality { Name = "foo", Quality = 10, SellIn = 12 };
+            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality("foo", 12, 10);
             concertTicketQuality.UpdateQuality();
-            Assert.AreEqual(11, concertTicketQuality.Quality);
+            Assert.AreEqual("foo, 11, 11", concertTicketQuality.PrintOut());
         }
 
         [Test]
         public void ConcertTicketQualityCannotExceedFifty()
         {
-            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality { Name = "foo", Quality = 50, SellIn = 9 };
+            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality("foo", 9, 50);
             concertTicketQuality.UpdateQuality();
-            Assert.AreEqual(50, concertTicketQuality.Quality);
+            Assert.AreEqual("foo, 8, 50", concertTicketQuality.PrintOut());
         }
 
         [Test]
         public void ConcertTicketQualityCannotDropBelowZero()
         {
-            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality { Name = "foo", Quality = 0, SellIn = 0 };
+            ConcertTicketQuality concertTicketQuality = new ConcertTicketQuality("foo", 0, 0);
             concertTicketQuality.UpdateQuality();
-            Assert.AreEqual(0, concertTicketQuality.Quality);
+            Assert.AreEqual("foo, -1, 0", concertTicketQuality.PrintOut());
         }
     }
 }

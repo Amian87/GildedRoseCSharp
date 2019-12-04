@@ -11,27 +11,26 @@ namespace GildedRoseTests
         [Test]
         public void AgedBrieQualityAppreciatesByOneBeforeSellInDate()
         {
-            QualityAppreciates qualityAppreciates = new QualityAppreciates { Name = "Aged Brie", Quality = 10, SellIn = 5 };
+            QualityAppreciates qualityAppreciates = new QualityAppreciates("foo", 5, 10);
             qualityAppreciates.UpdateQuality();
-            Assert.AreEqual(11, qualityAppreciates.Quality);
+            Assert.AreEqual("foo, 4, 11", qualityAppreciates.PrintOut());
 
         }
 
         [Test]
         public void AgedBrieQualityAppreciatesByTwoAfterSellInDate()
         {
-            QualityAppreciates qualityAppreciates = new QualityAppreciates { Name = "foo", Quality = 10, SellIn = -1 };
+            QualityAppreciates qualityAppreciates = new QualityAppreciates("foo", -1, 10);
             qualityAppreciates.UpdateQuality();
-            Assert.AreEqual(12, qualityAppreciates.Quality);
+            Assert.AreEqual("foo, -2, 12", qualityAppreciates.PrintOut());
         }
 
         [Test]
         public void QualityIsNeverGreaterThanFifty()
         {
-            QualityAppreciates qualityAppreciates = new QualityAppreciates { Name = "foo", Quality = 50, SellIn = -1 };
+            QualityAppreciates qualityAppreciates = new QualityAppreciates("foo", -1, 50);
             qualityAppreciates.UpdateQuality();
-            Assert.AreEqual(50, qualityAppreciates.Quality);
-
+            Assert.AreEqual("foo, -2, 50", qualityAppreciates.PrintOut());
         }
 
     }

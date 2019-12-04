@@ -6,6 +6,14 @@ namespace GildedRoseKata
 {
     public class ConcertTicketQuality : AbstractItem
     {
+        public ConcertTicketQuality(string name, int sellIn, int quality)
+        {
+            this.Name = name;
+            this.SellIn = sellIn;
+            this.Quality = quality;
+        }
+
+
         public override void UpdateQuality() 
         {
             Quality += 1;

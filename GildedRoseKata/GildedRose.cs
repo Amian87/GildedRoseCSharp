@@ -6,8 +6,8 @@ namespace GildedRoseKata
 {
     public class GildedRose
     {
-        IList<IItem> Items;
-        public GildedRose(IList<IItem> Items)
+        IList<AbstractItem> Items;
+        public GildedRose(IList<AbstractItem> Items)
         {
             this.Items = Items;
         }

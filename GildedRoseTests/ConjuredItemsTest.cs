@@ -11,19 +11,17 @@ namespace GildedRoseTests
         [Test]
         public void QualityDegradesTwiceAsFastAsNormalItems()
         {
-            ConjuredItems conjuredItems = new ConjuredItems { Name = "Aged Brie", Quality = 10, SellIn = 5 };
+            ConjuredItems conjuredItems = new ConjuredItems("foo", 5, 10 );
             conjuredItems.UpdateQuality();
-            Assert.AreEqual(8, conjuredItems.Quality);
-            Assert.AreEqual(4, conjuredItems.SellIn);
+            Assert.AreEqual("foo, 4, 8", conjuredItems.PrintOut());
         }
 
         [Test]
         public void QualityCannotBeNegative()
         {
-            ConjuredItems conjuredItems = new ConjuredItems { Name = "Aged Brie", Quality = 0, SellIn = 5 };
+            ConjuredItems conjuredItems = new ConjuredItems("foo", 5, 0 );
             conjuredItems.UpdateQuality();
-            Assert.AreEqual(0, conjuredItems.Quality);
-            Assert.AreEqual(4, conjuredItems.SellIn);
+            Assert.AreEqual("foo, 4, 0", conjuredItems.PrintOut());
         }
 
     }

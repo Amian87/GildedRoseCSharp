@@ -11,10 +11,9 @@ namespace GildedRoseTests
         [Test]
         public void QualityAndSellInDateRemainUnchanged()
         {
-            FixedQuality fixedQuality = new FixedQuality { Name = "foo", Quality = 10, SellIn = 10 };
+            FixedQuality fixedQuality = new FixedQuality("foo", 10, 10);
             fixedQuality.UpdateQuality();
-            Assert.AreEqual(10, fixedQuality.Quality);
-            Assert.AreEqual(10, fixedQuality.SellIn);
+            Assert.AreEqual("foo, 10, 10", fixedQuality.PrintOut());
         }
 
     }

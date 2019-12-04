@@ -4,19 +4,17 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public abstract class AbstractItem : IItem 
+    public abstract class AbstractItem
     {
+        protected string Name;
+        protected int Quality;
+        protected int SellIn;
         
-
-        public string Name { get; set; }
-        public int Quality { get; set; }
-        public int SellIn { get; set; }
-
         public abstract void UpdateQuality();
 
-        public void PrintOut() 
+        public string PrintOut() 
         {
-            System.Console.WriteLine(Name + ", " + SellIn + ", " + Quality);
+            return Name + ", " + SellIn + ", " + Quality;
         }
 
     }

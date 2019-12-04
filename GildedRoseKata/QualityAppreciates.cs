@@ -6,6 +6,13 @@ namespace GildedRoseKata
 {
     public class QualityAppreciates : AbstractItem
     {
+        public QualityAppreciates(string name, int sellIn, int quality)
+        {
+            this.Name = name;
+            this.SellIn = sellIn;
+            this.Quality = quality;
+        }
+
         public override void UpdateQuality() 
         {
             Quality += 1;

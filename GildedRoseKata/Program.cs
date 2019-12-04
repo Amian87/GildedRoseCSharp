@@ -8,36 +8,16 @@ namespace GildedRoseKata
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
-            IList<IItem> Items = new List<IItem>{
-                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                new QualityAppreciates {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                new FixedQuality {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
-                new FixedQuality {Name = "Sulfuras, Hand of Ragnaros", SellIn = -1, Quality = 80},
-                new ConcertTicketQuality
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = 15,
-                    Quality = 20
-                },
-                new ConcertTicketQuality
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = 10,
-                    Quality = 49
-                },
-                new ConcertTicketQuality
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = 5,
-                    Quality = 49
-                },
-                new ConjuredItems
-                {
-                    Name = "Conjured Shirt",
-                    SellIn = 5,
-                    Quality = 49
-                }
+            IList<AbstractItem> Items = new List<AbstractItem>{
+                new Item("+5 Dexterity Vest", 10, 20),
+                new QualityAppreciates ("Aged Brie", 2, 0),
+                new Item ("Elixir of the Mongoose", 5,7),
+                new FixedQuality ("Sulfuras, Hand of Ragnaros", 0, 80),
+                new FixedQuality ("Sulfuras, Hand of Ragnaros", -1, 80),
+                new ConcertTicketQuality("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+                new ConcertTicketQuality("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+                new ConcertTicketQuality("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+                new ConjuredItems("Conjured Shirt", 5, 49)
             };
     
             var app = new GildedRose(Items);
@@ -48,7 +28,7 @@ namespace GildedRoseKata
                 Console.WriteLine("name, sellIn, quality");
                 for (var j = 0; j < Items.Count; j++)
                 {
-                    Items[j].PrintOut();
+                    Console.WriteLine(Items[j].PrintOut());
                 }
                 Console.WriteLine("");
                 app.UpdateQuality();

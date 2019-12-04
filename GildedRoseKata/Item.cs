@@ -6,9 +6,11 @@ namespace GildedRoseKata
 {
     public class Item : AbstractItem
     {
-        public override string ToString()
+        public Item(string name, int sellIn, int quality)
         {
-            return this.Name + ", " + this.SellIn + ", " + this.Quality;
+            this.Name = name;
+            this.SellIn = sellIn;
+            this.Quality = quality;
         }
 
         public override void UpdateQuality()
