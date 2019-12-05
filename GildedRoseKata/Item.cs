@@ -13,6 +13,11 @@ namespace GildedRoseKata
             this.Quality = quality;
         }
 
+        public void DecreaseQualityByTwo()
+        {
+            Quality -= 2;
+        }
+
         public override void UpdateQuality()
         {
             SellIn = SellIn - 1;

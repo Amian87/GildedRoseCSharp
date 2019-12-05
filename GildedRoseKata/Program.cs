@@ -7,6 +7,11 @@ namespace GildedRoseKata
     {
         public static void Main(string[] args)
         {
+            IO iO = new IO();
+            Item items = new Item("Conjured Shirt", 5, 49);
+            ConjuredDecorator conjuredDecorator = new ConjuredDecorator(items);
+
+
             Console.WriteLine("OMGHAI!");
             IList<AbstractItem> Items = new List<AbstractItem>{
                 new Item("+5 Dexterity Vest", 10, 20),
@@ -19,20 +24,14 @@ namespace GildedRoseKata
                 new ConcertTicketQuality("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 new ConjuredItems("Conjured Shirt", 5, 49)
             };
-    
-            var app = new GildedRose(Items);
 
-            for (var i = 0; i < 31; i++)
-            {
-                Console.WriteLine("-------- day " + i + " --------");
-                Console.WriteLine("name, sellIn, quality");
-                for (var j = 0; j < Items.Count; j++)
-                {
-                    Console.WriteLine(Items[j].PrintOut());
-                }
-                Console.WriteLine("");
-                app.UpdateQuality();
-            }
+
+    
+            var app = new GildedRose(Items, iO);
+
+            app.PrintToConsole();
+
+
         }
     }
 }
