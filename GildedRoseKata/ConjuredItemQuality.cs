@@ -4,13 +4,9 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class ConjuredItemQuality : IItem
+    public class ConjuredItemQuality : AbstractItem
     {
-        public string Name { get; set; }
-        public int Quality { get; set; }
-        public int SellIn { get; set; }
-
-        public void UpdateQuality()
+        public override void UpdateQuality()
         {
             SellIn -= 1;
             Quality -= 2;
