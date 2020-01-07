@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class Item
+    public class Item : IItem
     {
         public string Name { get; set; }
         public int SellIn { get; set; }
@@ -13,6 +13,14 @@ namespace GildedRoseKata
         public override string ToString()
         {
             return this.Name + ", " + this.SellIn + ", " + this.Quality;
+        }
+
+        public void UpdateQuality()
+        {
+            Quality -=  1;
+
+            SellIn -=  1;
+
         }
     }
 }
