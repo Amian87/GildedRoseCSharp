@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class Item
+    public class Item : IItem
     {
         public string Name { get; set; }
         public int SellIn { get; set; }
