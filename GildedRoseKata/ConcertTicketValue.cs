@@ -5,6 +5,7 @@
         public void UpdateItemQuality()
         {
             Quality += 1;
+            SellIn -= 1;
 
             if (SellIn < 5)
             {

@@ -50,5 +50,14 @@ namespace GildedRoseKata.Tests
 
         }
 
+        [Test]
+        public void ConcertTicketSellInDecreasesByOne()
+        {
+            ConcertTicketValue concertTicket = new ConcertTicketValue { Name = "foo", Quality = 15, SellIn = 5 };
+            concertTicket.UpdateItemQuality();
+            Assert.AreEqual(4, concertTicket.SellIn);
+
+        }
+
     }
 }

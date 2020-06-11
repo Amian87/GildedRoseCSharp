@@ -1,20 +1,18 @@
 ﻿namespace GildedRoseKata
 {
-    public class QualityAppreciates : IItem
+    public class QualityDepreciates : IItem
     {
         public void UpdateItemQuality()
         {
-            Quality += 1;
             SellIn -= 1;
-
+            Quality -= 1;
             if (SellIn < 0)
             {
-                Quality += 1;
+                Quality -= 1;
             }
-
-            if (Quality >= 50)
+            if (Quality < 0)
             {
-                Quality = 50;
+                Quality = 0;
             }
 
         }
