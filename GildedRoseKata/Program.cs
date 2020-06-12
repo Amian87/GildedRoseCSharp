@@ -9,12 +9,12 @@ namespace GildedRoseKata
         {
             Console.WriteLine("OMGHAI!");
 
-            IList<IItem> Items = new List<IItem>{
+            IList<Item> Items = new List<Item>{
                 new QualityDepreciates() {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                 new QualityAppreciates {Name = "Aged Brie", SellIn = 2, Quality = 0},
                 new QualityDepreciates() {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                new FixQualityItem() {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
-                new FixQualityItem() {Name = "Sulfuras, Hand of Ragnaros", SellIn = -1, Quality = 80},
+                new FixQualityUpdateQuality() {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
+                new FixQualityUpdateQuality() {Name = "Sulfuras, Hand of Ragnaros", SellIn = -1, Quality = 80},
                 new ConcertTicketValue
                 {
                     Name = "Backstage passes to a TAFKAL80ETC concert",
@@ -34,7 +34,7 @@ namespace GildedRoseKata
                     Quality = 49
                 },
 				// this conjured item does not work properly yet
-				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+				new QualityDepreciates() {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
             var app = new GildedRose(Items);

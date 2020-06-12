@@ -8,9 +8,9 @@ namespace GildedRoseKata.Tests
         [Test]
         public void QualityRemainsTheSame()
         {
-            FixQualityItem fixQualityItem = new FixQualityItem {Name = "foo", Quality = 10, SellIn = 4};
-            fixQualityItem.UpdateItemQuality();
-            Assert.AreEqual(10,fixQualityItem.Quality);
+            FixQualityUpdateQuality fixQualityUpdateQuality = new FixQualityUpdateQuality {Name = "foo", Quality = 10, SellIn = 4};
+            fixQualityUpdateQuality.UpdateItemQuality();
+            Assert.AreEqual(10,fixQualityUpdateQuality.Quality);
         }
     }
 }

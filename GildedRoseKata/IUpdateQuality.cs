@@ -4,12 +4,9 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public interface IItem
+    public interface IUpdateQuality 
     {
         void UpdateItemQuality();
 
-        string Name { get; set; }
-        int Quality { get; set; } 
-        int SellIn { get; set; }
     }
 }
