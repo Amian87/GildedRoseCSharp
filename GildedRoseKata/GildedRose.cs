@@ -16,7 +16,7 @@ namespace GildedRoseKata
         {
             foreach (var item in Items)
             {
-                item.UpdateItemQuality();
+                item.UpdateQuality();
             }
 
         }

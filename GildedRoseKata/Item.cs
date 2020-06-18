@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class Item
+    public class Item : IItem
     {
         public string Name { get; set; }
         public int SellIn { get; set; }
@@ -15,7 +15,7 @@ namespace GildedRoseKata
             return this.Name + ", " + this.SellIn + ", " + this.Quality;
         }
 
-        public void UpdateItemQuality()
+        public void UpdateQuality()
         {
       
                 if (Name != "Aged Brie" && Name != "Backstage passes to a TAFKAL80ETC concert")
