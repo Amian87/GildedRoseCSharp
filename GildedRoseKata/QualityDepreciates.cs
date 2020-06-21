@@ -11,14 +11,14 @@
             SellIn -= 1;
             Quality -= 1;
 
-            if (Quality < 0)
-            {
-                Quality = 0;
-            }
-
             if (SellIn < 0)
             {
                 Quality -= 1;
+            }
+
+            if (Quality < 0)
+            {
+                Quality = 0;
             }
         }
     }
