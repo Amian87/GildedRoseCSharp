@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseKata
 {
-    public class ConcertTicket : IItem
+    public class ConcertTicket : IUpdateQuality
     {
         public string Name { get; set; }
         public int Quality { get; set; }

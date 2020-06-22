@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseKata
 {
-    public interface IItem
+    public interface IUpdateQuality
     {
         string Name { get; set; }
         int Quality { get; set; }

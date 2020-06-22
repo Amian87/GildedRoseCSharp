@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseKata
 {
-    public class FixedItemQuality : IUpdateQuality
+    public class FixedUpdateQualityQuality : IUpdateQuality
     {
         public string Name { get; set; }
         public int Quality { get; set; }
