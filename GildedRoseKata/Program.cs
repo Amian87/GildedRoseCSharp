@@ -9,7 +9,7 @@ namespace GildedRoseKata
         {
             Console.WriteLine("OMGHAI!");
 
-            IList<IUpdateQuality> Items = new List<IUpdateQuality>{
+            IList<Item> Items = new List<Item>{
                 new QualityDepreciates {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                 new QualityAppreciates {Name = "Aged Brie", SellIn = 2, Quality = 0},
                 new QualityDepreciates {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
@@ -33,8 +33,7 @@ namespace GildedRoseKata
                     SellIn = 5,
                     Quality = 49
                 },
-				// this conjured item does not work properly yet
-				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                new SpecialItem {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
             var app = new GildedRose(Items);

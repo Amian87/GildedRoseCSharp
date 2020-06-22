@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseKata
 {
-    public class Item : IUpdateQuality
+    public abstract class Item : IUpdateQuality
     {
         public string Name { get; set; }
         public int SellIn { get; set; }
@@ -15,9 +15,7 @@ namespace GildedRoseKata
             return this.Name + ", " + this.SellIn + ", " + this.Quality;
         }
 
-        public void UpdateQuality()
-        {
+        public abstract void UpdateQuality();
 
-        }
     }
 }

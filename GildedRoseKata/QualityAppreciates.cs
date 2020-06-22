@@ -1,11 +1,8 @@
 ﻿namespace GildedRoseKata
 {
-    public class QualityAppreciates : IUpdateQuality
+    public class QualityAppreciates : Item
     {
-        public string Name { get; set; }
-        public int Quality { get; set; }
-        public int SellIn { get; set; }
-        public void UpdateQuality()
+        public override void UpdateQuality()
         {
             SellIn -= 1;
             Quality += 1;
