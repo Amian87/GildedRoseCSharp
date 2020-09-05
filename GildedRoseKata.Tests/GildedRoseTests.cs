@@ -113,6 +113,5 @@ namespace GildedRoseKata.Tests
             Assert.AreEqual(0, item[0].Quality);
             Assert.AreEqual(-1, item[0].SellIn);
         }
-
     }
 }
