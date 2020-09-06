@@ -2,12 +2,9 @@
 
 namespace GildedRoseKata
 {
-    public class SpecialItem : IItem
+    public class SpecialItem : AbsractItem
     {
-        public string Name { get; set; }
-        public int Quality { get; set; }
-        public int SellIn { get; set; }
-        public void UpdateQuality()
+        public override void UpdateQuality()
         {
             Quality -= 2;
             SellIn -= 1;

@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace GildedRoseKata
+﻿namespace GildedRoseKata
 {
-    public class Item : IItem
+    public abstract class AbsractItem
     {
         public string Name { get; set; }
         public int SellIn { get; set; }
@@ -14,6 +11,6 @@ namespace GildedRoseKata
             return this.Name + ", " + this.SellIn + ", " + this.Quality;
         }
 
-        public void UpdateQuality() {}
+        public abstract void UpdateQuality();
     }
 }
