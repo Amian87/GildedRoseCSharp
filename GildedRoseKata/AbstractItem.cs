@@ -1,11 +1,11 @@
 ﻿namespace GildedRoseKata
 {
-    public interface IItem
+    public abstract class AbstractItem
     {
         public string Name { get; set; }
         public int Quality { get; set; }
         public int SellIn { get; set; }
 
-        public void UpdateQuality();
+        public abstract void UpdateQuality();
     }
 }
