@@ -1,16 +1,13 @@
-﻿namespace GildedRoseKata
+﻿using System;
+
+namespace GildedRoseKata
 {
-    public class QualityDepreciates : AbsractItem
+    public class SpecialItemQuality : AbsractItem
     {
         public override void UpdateQuality()
         {
-            Quality -= 1;
+            Quality -= 2;
             SellIn -= 1;
-
-            if (SellIn < 0)
-            {
-                Quality -= 1;
-            }
 
             if (Quality < 0)
             {

@@ -1,11 +1,8 @@
 ﻿namespace GildedRoseKata
 {
-    public class ConcertTicketQuality : IItem
+    public class ConcertTicketQuality : AbsractItem
     {
-        public string Name { get; set; }
-        public int Quality { get; set; }
-        public int SellIn { get; set; }
-        public void UpdateQuality()
+        public override void UpdateQuality()
         {
             Quality += 1;
             SellIn -= 1;
